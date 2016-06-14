@@ -1,12 +1,13 @@
 # VERSION                   0.0.1
 
-FROM eboraas/apache:jessie
+FROM eboraas/debian:jessie
 
 MAINTAINER Dmitry Vapelnik <dvapelnik@gmail.com>
 
 RUN groupadd -g 1000 donkey && \
     useradd -u 1000 -g 1000 -G sudo donkey && \
     apt-get update && \
+    apt-get install -y apache2 && \
     apt-get install -y \
         curl \
         git \
